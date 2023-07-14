@@ -1,0 +1,48 @@
+/* CSS styles for the navbar */
+.navbar {
+  background-color: #f8f9fa;
+}
+
+.navbar a {
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* CSS styles for the dropdown */
+.dropdown .dropdown-menu {
+  background-color: #f8f9fa;
+}
+
+.dropdown .dropdown-item {
+  color: #000;
+  font-size:20px;
+}
+
+/* CSS styles for the search form */
+form.search {
+  display: flex;
+  align-items: center;
+  background-color: orange;
+}
+
+form.search .btn {
+  margin-left: 10px;
+}
+
+/* CSS styles for the header */
+header {
+  background-color: blue;
+  padding: 120px;
+}
+
+header h1 {
+  font-family: cursive;
+  font-size: 90px;
+  margin-top: 100px;
+}
+
+header p {
+  font-size: 40px;
+  font-weight:bold;
+}

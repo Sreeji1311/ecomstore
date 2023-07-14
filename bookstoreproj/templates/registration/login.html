@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'loginstyle.css' %}">
+    <title>Login</title>
+    <style>
+
+body{
+
+   font-size: 12px;
+   height:100px;
+   background:url('login.jpg')  no-repeat center fixed;
+   background-size: cover;
+
+}
+.container{
+      width:40%;
+      height:40%;
+}
+
+form{
+   position: relative;
+   padding: 90px;
+   background:#ffb00;
+   max-width:200;
+   margin:50px auto 0;
+   border-radius:4px;
+   box-shadow:10px 10px 5px 12px #8c8888;
+   font-family: cursive;
+   vertical-align:bottom;
+   margin-top:60px;
+   height:200px;
+   margin-left:500px;
+   font-size:20px;
+    border:2px;
+   display:inline-block;
+
+
+}
+h3{
+   margin-top:100px;
+   text-align:center;
+   font-size:50px;
+   font-family: cursive;
+    margin-left:600px;
+}
+button {
+    width: 150px;
+    align-items:center;
+    margin:10px;
+    height:30px;
+    border: border-box;
+    font-size:20px;
+
+}
+ button[type="submit"] {
+    background: #778899;
+    border-radius: 2px;
+    color: black;
+    cursor: pointer;
+    pointer-events:auto;
+    font-size: 1.5rem;
+    text-shadow: 0 1px #68B25B;
+}
+button[type="submit"]:hover {
+    transform: scale(0.9);
+}
+
+    </style>
+</head>
+<body >
+<div class="container">
+<h3>Login</h3>
+<form method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <button type="submit" class="btn btn-success">Login</button>
+  <a class="btn btn-outline-info" href="{% url 'signup' %}" role="button">Create  account</a>
+</form>
+    </div>
+</body>
+</html>
