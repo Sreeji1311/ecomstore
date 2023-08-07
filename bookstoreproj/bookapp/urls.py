@@ -4,7 +4,7 @@ from .views import BookList, BookDetail, BookCheckoutView, PaymentComplete, home
 from . import views
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('home', views.home, name='home'),
     path('search/', SearchResultsView.as_view(), name='search-results'),
     path('book_list/', BookList.as_view(), name='books'),
     path('book_details/<int:pk>/', BookDetail.as_view(), name='details'),

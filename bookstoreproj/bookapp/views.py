@@ -1,11 +1,12 @@
-from django.shortcuts import render, redirect
+from decimal import Decimal
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 from django.http import JsonResponse
+from django.shortcuts import render, redirect, get_object_or_404
+
 from django.views.generic import ListView, DetailView
 from .models import Book, Order, Cart, CartItem
-from django.db.models import Q
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404
-from decimal import Decimal
 
 
 # Create your views here.
@@ -36,7 +37,7 @@ class BookDetail(DetailView):
     template_name = 'book_details.html'
 
 
-class BookCheckoutView(DetailView):
+class BookCheckoutView(LoginRequiredMixin, DetailView):
     model = Book
     template_name = 'checkout.html'
 
@@ -81,7 +82,7 @@ def add_to_cart(request, book_id):
         cart_item.save()
         cart_obj.total_price += Decimal(str(book.price))
         cart_obj.save()
-        return redirect('mycart')
+    return redirect('mycart')
 
 
 @login_required()

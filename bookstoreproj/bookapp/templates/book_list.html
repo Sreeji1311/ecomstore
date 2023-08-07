@@ -8,17 +8,17 @@
     <title>Title</title>
 </head>
 <body>
-<div class="container">
+<div class="container" style="background-color: #D3D3D3;">
             <div class="row">
                  {% for book in books %}
-                <div class="col-lg-3 col-md-4 col-6 mt-3">
+                <div class="col-lg-4 col-md-4 col-6 mt-3">
 
                            <!-- card -->
-                           <div class="card" style="width: 20rem;">
+                           <div class="card" style="width: 24rem;">
                               <img src="{{ book.image_url }}" class="card-img-top" style="height:25rem;">
-                               <div class="card-body">
+                               <div class="card-body" style="background-color:#FAEBD7 ;">
                                <h5 class="card-title" style="font-weight:bold; font-size:120%;">{{ book.title }}</h5>
-                                   <p class="card-text" style="font-weight:bold; font-size:140%;">{{ book.description}}</p>
+                                   <p class="card-text" style="font-weight:bold; font-size:120%;">{{ book.description}}</p>
                                <p class="card-text" style="font-weight:bold;">Rs/-{{ book.price}}</p>
 
                                <a href="{% url 'details' book.id %}" class="btn btn-primary">View</a>

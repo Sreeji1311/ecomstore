@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+   .container-fluid h2{
+color:#5e68a8;
+}
+    h5{
+    font-size:25px;
+    }
+    p{
+    font-size:20px;
+    }
+ .card{
+text-align:center;
+border:1px solid #5e68a8;
+font-size:10px;
+margin-left:auto;
+margin-right:auto;
+}
+
+.btn-outline{
+color:#5e68a8;
+border:1px solid #5e68a8;
+}
+.btn-outline:hover{
+background-color:#9BA2D3;
+border:#9BA2D3;
+color:#FFFFFF;
+}
+a{
+font-size:25px;
+margin-bottom:15px;
+padding:10px;
+border-radius: 2px;
+}
+.btn-outline:active:hover{
+color:#5e68a8;
+border:1px solid #5e68a8;
+background:none;
+}
+.buy-center{
+text-align:center;
+margin-top:50px;
+}
+.btn-success{
+font-size:20px;
+color:#5e68a8;
+padding:10px 50px;
+border:1px solid #5e68a8;
+background:transparent;
+}
+.btn-success:hover{
+background-color:#9BA2D3;
+border:#9BA2D3;
+color:#FFFFFF;
+}
+
+.btn-success:active:hover{
+color:#5e68a8;
+border:1px solid #5e68a8;
+background:none;
+}
+
+</style>
+<body>
+<div class="container-fluid">
+    {% if cart_items %}
+    <h2>My Cart</h2>
+    <img src="https://img.icons8.com/?size=512&id=59997&format=png" height=40px; width="30px" style="padding:15px" >
+
+</div>
+
+    {% for cart_item in cart_items %}
+  <div class="card mb-3" style="max-width: 30rem; ">
+    <div class="row g=0">
+        <div class="col-md-4">
+            <img src="{{ cart_item.book.image_url}}" class="card-img" alt="{{ cart_item.book.title}}" style="height:30rem; padding:10px;">
+        </div>
+        <div class="col-sm-4">
+            <div class="card-body">
+            <h5>{{ cart_item.book.title}}</h5>
+            <p>Price: {{cart_item.book.price }} per Book</p>
+            <p>Quantity: {{cart_item.quantity }}</p>
+            <p>Total: {{cart_item.total_price }}</p>
+      <a class="btn btn-outline"  href="{% url 'remove_from_cart' book_id=cart_item.book.id %}" onclick="alert(' Item removed from cart')">Remove from cart </a>
+        </div>
+        </div>
+        </div>
+  </div>
+    {% endfor %}
+      <div class="buy-center">
+        <a class="btn btn-success" href="" onclick="alert('Payment successful')">Buy</a>
+          </div>
+    {% else %}
+     <p>Your cart is empty</p>
+    <a href="{% url 'books' %}">Continue shopping</a>
+
+
+
+{% endif %}
+</body>
+</html>
